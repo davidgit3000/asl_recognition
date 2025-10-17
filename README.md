@@ -63,17 +63,36 @@ python -m venv .venv311
 pip install -r requirements.txt
 ```
 
-### 3. Prepare Data (if not already done)
+### 3. Download Datasets
 
-See `scripts/1_data_preparation/README.md` for detailed steps.
+**Kaggle Datasets (required):**
+
+Option A - Using script (Mac/Linux):
+```bash
+# Setup Kaggle API credentials first (~/.kaggle/kaggle.json)
+bash download_kaggle_datasets.sh
+```
+
+Option B - Manual download:
+- Download [ASL Alphabet](https://www.kaggle.com/datasets/grassknoted/asl-alphabet) → extract to `data/kaggle_asl1/`
+- Download [ASL Dataset](https://www.kaggle.com/datasets/ayuraj/asl-dataset) → extract to `data/kaggle_asl2/`
+
+**MS-ASL Videos (optional):**
+- Download from [MS-ASL Dataset](https://microsoft.github.io/data-for-society/dataset?d=MS-ASL-American-Sign-Language-Dataset#overview)
+- Then, use automated scripts (see `scripts/1_data_preparation/README.md`)
+
+### 4. Prepare Data
 
 ```bash
+# Combine Kaggle datasets
+python scripts/1_data_preparation/combine_kaggle_asl.py
+
 # Build manifest and assign splits
 python scripts/1_data_preparation/build_manifest.py
 python scripts/1_data_preparation/assign_splits.py
 ```
 
-### 4. Extract and Preprocess Features
+### 5. Extract and Preprocess Features
 
 ```bash
 # Extract MediaPipe landmarks
@@ -83,7 +102,7 @@ python scripts/2_preprocessing/extract_landmarks.py
 python scripts/2_preprocessing/preprocess_features.py
 ```
 
-### 5. Test Dataloader
+### 6. Test Dataloader
 
 ```bash
 python scripts/4_evaluation/test_dataloader_with_splits.py

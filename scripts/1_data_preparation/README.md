@@ -4,8 +4,22 @@ Scripts for downloading, organizing, and preparing the ASL dataset.
 
 ## Workflow Order
 
-1. **Download Kaggle datasets** (manual or via script)
-   - Download ASL Alphabet datasets from Kaggle
+1. **Download Kaggle datasets**
+   
+   **Option A: Using the script (Mac/Linux):**
+   ```bash
+   # Make sure you have Kaggle API credentials set up (~/.kaggle/kaggle.json)
+   bash download_kaggle_datasets.sh
+   ```
+   
+   **Option B: Manual download:**
+   - Download from [ASL Alphabet](https://www.kaggle.com/datasets/grassknoted/asl-alphabet)
+   - Download from [ASL Dataset](https://www.kaggle.com/datasets/ayuraj/asl-dataset)
+   - Extract to `data/kaggle_asl1/` and `data/kaggle_asl2/`
+
+1a. **Download MS-ASL dataset (optional)**
+   - Download from [MS-ASL Dataset](https://microsoft.github.io/data-for-society/dataset?d=MS-ASL-American-Sign-Language-Dataset#overview)
+   - Then, use the automated download scripts (steps 3-5 below)
    
 2. **`combine_kaggle_asl.py`** - Combine multiple Kaggle datasets
    - Merges different Kaggle ASL datasets
