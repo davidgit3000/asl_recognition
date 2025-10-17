@@ -43,10 +43,21 @@ cd asl_recognition
 
 ### 2. Setup Environment
 
+**Mac/Linux:**
 ```bash
 # Create virtual environment
 python3.11 -m venv .venv311
 source .venv311/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+**Windows:**
+```bash
+# Create virtual environment
+python -m venv .venv311
+.venv311\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
