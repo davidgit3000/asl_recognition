@@ -34,7 +34,14 @@ asl_model/
 
 ## 🚀 Quick Start
 
-### 1. Setup Environment
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/davidgit3000/asl_recognition.git
+cd asl_recognition
+```
+
+### 2. Setup Environment
 
 ```bash
 # Create virtual environment
@@ -45,7 +52,7 @@ source .venv311/bin/activate
 pip install -r requirements.txt
 ```
 
-### 2. Prepare Data (if not already done)
+### 3. Prepare Data (if not already done)
 
 See `scripts/1_data_preparation/README.md` for detailed steps.
 
@@ -55,7 +62,7 @@ python scripts/1_data_preparation/build_manifest.py
 python scripts/1_data_preparation/assign_splits.py
 ```
 
-### 3. Extract and Preprocess Features
+### 4. Extract and Preprocess Features
 
 ```bash
 # Extract MediaPipe landmarks
@@ -65,7 +72,7 @@ python scripts/2_preprocessing/extract_landmarks.py
 python scripts/2_preprocessing/preprocess_features.py
 ```
 
-### 4. Test Dataloader
+### 5. Test Dataloader
 
 ```bash
 python scripts/4_evaluation/test_dataloader_with_splits.py
