@@ -1,0 +1,150 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+.venv/
+.venv311/
+venv/
+ENV/
+env/
+*.virtualenv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Data directories (large files)
+/data/
+artifacts/landmarks/*.npy
+artifacts/features/*.npy
+artifacts/models/*.pth
+artifacts/models/*.pt
+artifacts/models/*.ckpt
+artifacts/logs/*.log
+artifacts/logs/*.txt
+artifacts/tmp/
+
+# Keep directory structure
+!artifacts/.gitkeep
+!artifacts/landmarks/.gitkeep
+!artifacts/features/.gitkeep
+!artifacts/manifests/.gitkeep
+!artifacts/models/.gitkeep
+!artifacts/logs/.gitkeep
+
+# Keep main manifest, ignore others
+!artifacts/manifests/manifest_v1.csv
+artifacts/manifests/*.csv
+!artifacts/manifests/manifest_v1.csv
+artifacts/manifests/*.txt
+
+# Kaggle credentials
+.kaggle/
+kaggle.json
+
+# Model checkpoints (can be large)
+*.pth
+*.pt
+*.ckpt
+*.h5
+*.pkl
+*.pickle
+
+# Logs
+*.log
+logs/
+wandb/
+tensorboard/
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Video files (can be large)
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+
+# Image files (if too many)
+# Uncomment if you want to exclude images
+# *.jpg
+# *.jpeg
+# *.png
+# *.gif
+
+# Compressed files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Documentation builds
+docs/_build/
+site/
+
+# PyTorch
+*.pth.tar
+
+# TensorFlow
+*.pb
+saved_model/
+
+# Environment variables
+.env
+.env.local
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Testing
+.pytest_cache/
+.tox/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Profiling
+*.prof

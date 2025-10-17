@@ -1,0 +1,18 @@
+data_root: "./data"
+artifacts_root: "./artifacts"
+manifest_out: "./artifacts/manifests/manifest_v1.csv"
+
+# where datasets will live locally
+kaggle_asl_dir: "./data/kaggle_asl_combined"
+microsoft_asl_json_dir: "./data/microsoft_asl/ms_asl_json"
+msasl_clips_dir: "./data/microsoft_asl/ms_asl"
+personal_dir: "./data/personal"
+
+msasl_selected_classes: ["hello","thank_you","please","yes","no","help","where","what","you","me","bathroom","hungry","drink","stop","go","love","sorry","good","bad","morning"]
+msasl_top_k: 20
+msasl_per_class: 10
+msasl_over_sample: 3
+
+
+# initial label set (may edit later)
+labels: ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","hello","thank_you","please","yes","no","help","where","what","you","me","bathroom","hungry","drink","stop","go","love","sorry","good","bad","morning"]
