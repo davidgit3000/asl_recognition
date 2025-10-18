@@ -1,7 +1,7 @@
 import sys
 sys.path.insert(0, '.')
 
-from src.dataloader import create_dataloaders
+from src.data.dataloader import create_dataloaders
 import yaml
 
 # Load config
