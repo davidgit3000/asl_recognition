@@ -1,6 +1,7 @@
 data_root: "./data"
 artifacts_root: "./artifacts"
 manifest_out: "./artifacts/manifests/manifest_v1.csv"
+manifest_out_filtered: "./artifacts/manifests/manifest_filtered.csv"
 
 # where datasets will live locally
 kaggle_asl_dir: "./data/kaggle_asl_combined"

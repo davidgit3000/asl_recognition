@@ -215,7 +215,8 @@ def create_dataloaders(
     with open(config_path) as f:
         cfg = yaml.safe_load(f)
     
-    manifest_path = cfg['manifest_out']
+    # Use filtered manifest if available, otherwise use regular manifest
+    manifest_path = cfg.get('manifest_out_filtered', cfg['manifest_out'])
     features_dir = Path(cfg['artifacts_root']) / 'features'
     
     # Create datasets

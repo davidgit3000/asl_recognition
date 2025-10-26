@@ -22,6 +22,7 @@ LEFT_HIP_FULL = 468 + 23        # pose landmark 23 in full array
 RIGHT_HIP_FULL = 468 + 24       # pose landmark 24 in full array
 
 # After extraction (pose only, 33 landmarks starting at index 0)
+# Extracted array structure: [pose(0-32), left_hand(33-53), right_hand(54-74)] = 75 total
 LEFT_SHOULDER_EXTRACTED = 11    # pose landmark 11 in extracted array
 RIGHT_SHOULDER_EXTRACTED = 12   # pose landmark 12 in extracted array
 LEFT_HIP_EXTRACTED = 23         # pose landmark 23 in extracted array
@@ -79,6 +80,7 @@ def normalize_landmarks_extracted(pts):
         
         # Check if pose landmarks are valid (visibility > 0)
         if pts[t, LEFT_SHOULDER_EXTRACTED, 3] > 0 and pts[t, RIGHT_SHOULDER_EXTRACTED, 3] > 0:
+            # CASE 1: Full body detected (MS-ASL videos)
             # Center point: midpoint of shoulders and hips
             center = (left_shoulder + right_shoulder + left_hip + right_hip) / 4.0
             
@@ -88,7 +90,30 @@ def normalize_landmarks_extracted(pts):
             
             # Normalize all landmarks
             normalized[t, :, :3] = (pts[t, :, :3] - center) / scale
-        # else: keep original (likely all zeros for missing pose)
+        else:
+            # CASE 2: Hand-only images (Kaggle) - fallback normalization
+            # Use hand landmarks for normalization
+            left_hand = pts[t, 33:54, :]   # Left hand: indices 33-53
+            right_hand = pts[t, 54:75, :]  # Right hand: indices 54-74
+            
+            # Check which hand is visible
+            left_vis = left_hand[:, 3].sum()
+            right_vis = right_hand[:, 3].sum()
+            
+            if left_vis > 0 or right_vis > 0:
+                # Use visible hand(s) for normalization
+                visible_points = []
+                if left_vis > 0:
+                    visible_points.append(left_hand[left_hand[:, 3] > 0, :3])
+                if right_vis > 0:
+                    visible_points.append(right_hand[right_hand[:, 3] > 0, :3])
+                
+                if visible_points:
+                    all_visible = np.vstack(visible_points)
+                    center = all_visible.mean(axis=0)
+                    scale = all_visible.std() if all_visible.std() > 0.01 else 1.0
+                    normalized[t, :, :3] = (pts[t, :, :3] - center) / scale
+            # else: keep original (all zeros)
     
     return normalized
 

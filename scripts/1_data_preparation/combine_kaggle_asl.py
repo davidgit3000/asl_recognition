@@ -13,7 +13,7 @@ OUT_DIR  = Path("data/kaggle_asl_combined")
 ALLOW_LETTERS = set([chr(c) for c in range(ord('A'), ord('Z')+1)])
 USE_NOTHING_AS_NEG = True      # keep a small sample of "NOTHING" as negatives
 NEG_MAX_SAMPLES = 200          # limit negatives so they don't dominate
-CAP_PER_CLASS = 1000           # limit to 1000 images per class for efficiency
+CAP_PER_CLASS = None           # No cap - use all available images from both datasets
 
 # Map raw folder names to normalized labels
 def normalize(name: str):

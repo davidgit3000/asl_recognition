@@ -61,10 +61,7 @@ artifacts/tmp/
 !artifacts/logs/.gitkeep
 
 # Keep main manifest, ignore others
-!artifacts/manifests/manifest_v1.csv
-artifacts/manifests/*.csv
-!artifacts/manifests/manifest_v1.csv
-artifacts/manifests/*.txt
+!artifacts/manifests/*.csv
 
 # Kaggle credentials
 .kaggle/

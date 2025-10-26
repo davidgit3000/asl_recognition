@@ -1,0 +1,23 @@
+{
+  "best_val_acc": 86.78731270675229,
+  "test_acc": 86.28743095261169,
+  "test_loss": 1.0466355065074129,
+  "total_epochs": 100,
+  "args": {
+    "model_type": "lstm_attention",
+    "hidden_dim": 512,
+    "num_layers": 3,
+    "dropout": 0.25,
+    "bidirectional": true,
+    "window_size": 32,
+    "stride_train": 16,
+    "stride_val": 32,
+    "batch_size": 32,
+    "num_workers": 4,
+    "epochs": 100,
+    "lr": 0.001,
+    "weight_decay": 1e-05,
+    "patience": 10,
+    "label_smoothing": 0.1
+  }
+}
