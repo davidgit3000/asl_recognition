@@ -62,6 +62,7 @@ artifacts/tmp/
 
 # Keep main manifest, ignore others
 !artifacts/manifests/*.csv
+artifacts/manifests/manifest_v1_backup.csv
 
 # Kaggle credentials
 .kaggle/
